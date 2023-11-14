@@ -49,28 +49,22 @@ const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = 
 let { reagir } = require(__dirname + "/framework/app");
 var session = conf.session;
 const prefixe = conf.PREFIXE;
-var lienPaste = 'https://paste.c-net.org/';
-if (session != '') {
-    var priseSession = session.replace(/Z-O-K-O-U_MD-/gi, "");
-    //console.log(priseSession)
-    //console.log('https://paste.c-net.org/' + priseSession)}
-    /* console.log(chalk.green("Zokou-Md"))*/
-}
+
 async function authentification() {
     try {
-        let { data } = await axios.get(lienPaste + priseSession);
+        
         //console.log("le data "+data)
         if (!fs.existsSync(__dirname + "/auth/creds.json")) {
             console.log("connexion en cour ...");
-            await fs.writeFileSync(__dirname + "/auth/creds.json", atob(data), "utf8");
+            await fs.writeFileSync(__dirname + "/auth/creds.json", atob(session), "utf8");
             //console.log(session)
         }
         else if (fs.existsSync(__dirname + "/auth/creds.json")) {
-            await fs.writeFileSync(__dirname + "/auth/creds.json", atob(data), "utf8");
+            await fs.writeFileSync(__dirname + "/auth/creds.json", atob(session), "utf8");
         }
     }
     catch (e) {
-        console.log("Session Invalide ");
+        console.log("Session Invalide " + e );
         return;
     }
 }
