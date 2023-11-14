@@ -385,7 +385,7 @@ zokou({ nomCom: "theme",
  categorie: "Mods",
   reaction: "💞" }, async (dest, zk, commandeOptions) => {
 
-    const { arg, ms , botpic , prefixe, repondre} = commandeOptions;
+    const { arg, ms , mybotpic , prefixe, repondre} = commandeOptions;
 
     if (!arg[0] || arg === '') {
 
