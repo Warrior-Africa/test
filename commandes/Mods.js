@@ -409,7 +409,7 @@ msg += `${theme.id} : *${theme.nom}* proposé par ${theme.auteur}\n\n`
     }
     msg += `\n\n Vous pouvez proposer vos themes , merci.`
 
-    zk.sendMessage(dest , { image : {url : botpic()} , caption : msg} , {quoted : ms})
+    zk.sendMessage(dest , { image : {url : mybotpic()} , caption : msg} , {quoted : ms})
 
     } else {
 
